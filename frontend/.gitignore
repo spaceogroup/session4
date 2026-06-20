@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+.env
+*.log
+prisma/*.sqlite
+prisma/*.sqlite-journal
+next-env.d.ts

@@ -1,0 +1,19 @@
+# Root-level safety net (each app also has its own .gitignore)
+node_modules/
+dist/
+.next/
+out/
+coverage/
+
+# Environment files
+.env
+.env.local
+*.env
+
+# Databases (created at runtime; never commit)
+*.sqlite
+*.sqlite-journal
+
+# Logs & OS cruft
+*.log
+.DS_Store

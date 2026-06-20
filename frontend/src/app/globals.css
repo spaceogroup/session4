@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-900 text-slate-200 antialiased;
+}
+
+/* Subtle radial glow used behind the hero */
+.hero-glow {
+  background:
+    radial-gradient(60% 60% at 70% 10%, rgba(255, 90, 31, 0.18) 0%, transparent 60%),
+    radial-gradient(50% 50% at 10% 0%, rgba(255, 122, 71, 0.1) 0%, transparent 55%);
+}
+
+.section-anchor {
+  scroll-margin-top: 6rem;
+}
