@@ -66,7 +66,11 @@ session4/
 - 🎯 **API-driven content** — all copy comes from the NestJS API, editable without touching the UI.
 - 🗄️ **Two separate databases** — content (API) and engagement (web) never share a DB.
 - 🌱 **Auto-seeding** — the API populates itself on first boot from a single seed file.
-- 🛡️ **Graceful fallback** — the site renders from a bundled snapshot if the API is unreachable.
+- 👥 **Clickable team profiles** — tap any leader for a modal with their photo, bio & a favourite memory.
+- 💬 **Employee Speaks carousel** — auto-playing testimonials (real quotes) with controls & dots.
+- 🖼️ **Interactive memories gallery** — category filters + lightbox that links the people in each moment.
+- ✨ **Scroll-reveal animations** — sections fade in as they enter the viewport.
+- 🛡️ **Graceful fallback** — the site renders from a bundled snapshot if the API is unreachable; avatars fall back to initials.
 - ✉️ **Contact & newsletter** — form submissions persist to the frontend's own SQLite DB.
 - 📖 **Swagger docs** — interactive API reference out of the box.
 - 🎨 **Modern responsive UI** — Tailwind CSS, dark theme, accessible, mobile-first.
@@ -211,8 +215,10 @@ Key endpoints (base path `/api/v1`):
 | GET | `/company/overview` | Hero/about summary + headline stats |
 | GET | `/stats` | Company statistics |
 | GET | `/services` | Capabilities / services |
-| GET | `/team` | Leadership team |
+| GET | `/team` | Leadership team (with photo, bio & memory) |
+| GET | `/testimonials` | Employee Speaks testimonials |
 | GET | `/life-events` | Life at Space-O events |
+| GET | `/memories` | Memories gallery (photos + linked people) |
 | GET | `/offices` | Office locations |
 
 Engagement endpoints live on the **frontend** (Next.js route handlers):

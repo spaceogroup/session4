@@ -54,8 +54,12 @@ frontend falls back to a bundled content snapshot so pages still render.
 
 ### Backend
 - **Modules** live in `src/modules/<name>/` each with `*.module.ts`, `*.controller.ts`,
-  `*.service.ts`, `entities/`, `dto/`. Modules: `stats`, `services`, `team`, `life`, `offices`,
-  plus a top-level `company` overview endpoint.
+  `*.service.ts`, `entities/`, `dto/`. Modules: `stats`, `services`, `team`, `testimonials`,
+  `life`, `memories`, `offices`, plus a top-level `company` overview endpoint.
+- `team` members carry `photo`/`bio`/`memory`; `testimonials` are the Employee Speaks quotes;
+  `memories` are gallery tiles with an `image` URL and a `people` (simple-array) link list.
+  Person photos use DiceBear avatars; memory photos use seeded picsum URLs (frontend falls back
+  to initials/gradients if an image fails to load).
 - **Entities** map 1:1 to tables in §8 of the PRD. `synchronize: true` in dev only.
 - **Seeding** is idempotent — `SeedService` runs `OnApplicationBootstrap` and inserts only when a
   table is empty. Edit seed data in `src/seed/seed.data.ts`.
@@ -66,8 +70,10 @@ frontend falls back to a bundled content snapshot so pages still render.
 - App Router under `src/app/`. The homepage (`src/app/page.tsx`) is a server component that calls
   `lib/api.ts` to fetch content.
 - `lib/api.ts` centralizes API calls + the offline fallback (`lib/fallback-data.ts`).
-- Reusable UI in `src/components/` (e.g. `Hero`, `Stats`, `Services`, `Team`, `LifeAtSpaceO`,
-  `Offices`, `ContactForm`, `Footer`).
+- Reusable UI in `src/components/` (e.g. `Hero`, `Stats`, `Services`, `Team`, `Testimonials`,
+  `LifeAtSpaceO`, `Memories`, `Offices`, `ContactForm`, `Footer`). Interactive pieces are client
+  components: `Team` (profile modal), `Testimonials` (carousel), `Memories` (filter + lightbox),
+  `Avatar` (image-with-fallback) and `Reveal` (IntersectionObserver scroll-in).
 - Engagement writes go through route handlers in `src/app/api/*/route.ts` → Prisma client in
   `lib/prisma.ts`. Never call the API DB from here.
 - Styling: Tailwind. Brand accent defined in `tailwind.config.ts`. Keep components accessible.

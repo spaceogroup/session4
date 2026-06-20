@@ -6,12 +6,16 @@ import { Service } from '../modules/services/entities/service.entity';
 import { TeamMember } from '../modules/team/entities/team-member.entity';
 import { LifeEvent } from '../modules/life/entities/life-event.entity';
 import { Office } from '../modules/offices/entities/office.entity';
+import { Testimonial } from '../modules/testimonials/entities/testimonial.entity';
+import { Memory } from '../modules/memories/entities/memory.entity';
 import {
   lifeEventsSeed,
+  memoriesSeed,
   officesSeed,
   servicesSeed,
   statsSeed,
   teamSeed,
+  testimonialsSeed,
 } from './seed.data';
 
 /**
@@ -28,6 +32,8 @@ export class SeedService implements OnApplicationBootstrap {
     @InjectRepository(TeamMember) private readonly team: Repository<TeamMember>,
     @InjectRepository(LifeEvent) private readonly life: Repository<LifeEvent>,
     @InjectRepository(Office) private readonly offices: Repository<Office>,
+    @InjectRepository(Testimonial) private readonly testimonials: Repository<Testimonial>,
+    @InjectRepository(Memory) private readonly memories: Repository<Memory>,
   ) {}
 
   async onApplicationBootstrap(): Promise<void> {
@@ -36,6 +42,8 @@ export class SeedService implements OnApplicationBootstrap {
     await this.seedIfEmpty(this.team, teamSeed, 'team members');
     await this.seedIfEmpty(this.life, lifeEventsSeed, 'life events');
     await this.seedIfEmpty(this.offices, officesSeed, 'offices');
+    await this.seedIfEmpty(this.testimonials, testimonialsSeed, 'testimonials');
+    await this.seedIfEmpty(this.memories, memoriesSeed, 'memories');
   }
 
   private async seedIfEmpty<T>(

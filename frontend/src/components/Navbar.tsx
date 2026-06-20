@@ -1,8 +1,9 @@
 const links = [
   { href: '#about', label: 'About' },
-  { href: '#services', label: 'What we do' },
-  { href: '#team', label: 'Leadership' },
-  { href: '#life', label: 'Life at Space-O' },
+  { href: '#team', label: 'Team' },
+  { href: '#speaks', label: 'Speaks' },
+  { href: '#life', label: 'Life' },
+  { href: '#memories', label: 'Memories' },
   { href: '#offices', label: 'Offices' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -19,7 +20,7 @@ export default function Navbar() {
             People of <span className="text-brand-400">Space-O</span>
           </span>
         </a>
-        <ul className="hidden items-center gap-7 text-sm text-slate-300 md:flex">
+        <ul className="hidden items-center gap-5 text-sm text-slate-300 lg:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="transition-colors hover:text-white">

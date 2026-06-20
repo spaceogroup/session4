@@ -19,6 +19,31 @@ export interface TeamMember {
   name: string;
   title: string;
   initials: string;
+  photo: string;
+  bio: string;
+  memory: string;
+  order: number;
+}
+
+export interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  tenure: string;
+  quote: string;
+  photo: string;
+  initials: string;
+  order: number;
+}
+
+export interface Memory {
+  id: number;
+  title: string;
+  category: string;
+  caption: string;
+  emoji: string;
+  image: string;
+  people: string[];
   order: number;
 }
 
@@ -54,6 +79,8 @@ export interface SiteContent {
   team: TeamMember[];
   lifeEvents: LifeEvent[];
   offices: Office[];
+  testimonials: Testimonial[];
+  memories: Memory[];
   /** true when the API was unreachable and the bundled snapshot was used */
   usedFallback: boolean;
 }
